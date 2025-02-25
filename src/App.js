@@ -4,7 +4,7 @@ import New from '../../textutils/src/component/New';
 import Textarea from '../../textutils/src/component/Textarea';
 import React, { useState } from 'react';
 import {
-  BrowserRouter as Router,
+  BrowserRouter,
   Route,
   Routes
 } from "react-router-dom";
@@ -38,8 +38,8 @@ function App() {
   }
 
   return (
-    <>
-      <Router>
+     <>
+       <BrowserRouter>
         <Navbar title='TextFormatter' mode={mode} toggleMode={toggleMode} />
         <Alert alert={alert} />
         <div className="container">
@@ -47,11 +47,13 @@ function App() {
             <Route exact path="/" element={<Textarea showAlert={showAlert} heading='Enter the text to analyze:' mode={mode} />}>
             </Route>
             <Route exact path="/new" element={<New mode={mode}/>}>
-              
             </Route>
-          </Routes>
-        </div>
-      </Router>
+          </Routes> 
+         </div>
+       </BrowserRouter>
+       {/* <div className="container">
+       <Textarea showAlert={showAlert} heading='Enter the text to analyze:' mode={mode} />
+       </div> */}
     </>
   );
 }
